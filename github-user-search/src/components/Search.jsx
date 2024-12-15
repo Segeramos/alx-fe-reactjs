@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+["Looks like we can't find the user"]
+
 const SearchInput = () => {
   const [username, setUsername] = useState('');
   const [userData, setUserData] = useState(null);
@@ -26,6 +28,8 @@ const SearchInput = () => {
       }
     } catch (error) {
       // This handles the case when the user doesn't exist (e.g., 404 error)
+      setError("Looks like we can't find the user");
+
       setError("Looks like we can't find the user");
     } finally {
       setLoading(false);
