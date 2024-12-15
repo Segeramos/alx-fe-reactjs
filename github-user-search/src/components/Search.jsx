@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-["Looks like we can't find the user"]
+["Looks like we cant find the user"]
 
 const SearchInput = () => {
   const [username, setUsername] = useState('');
