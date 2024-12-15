@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 ["Looks like we cant find the user"]
+"fetchUserData"
 
 const SearchInput = () => {
   const [username, setUsername] = useState('');
@@ -22,15 +23,15 @@ const SearchInput = () => {
       const response = await axios.get(`https://api.github.com/users/${username}`);
       
       if (response.status === 404) {
-        setError("Looks like we can't find the user");
+        setError("Looks like we cant find the user");
       } else {
         setUserData(response.data);
       }
     } catch (error) {
       // This handles the case when the user doesn't exist (e.g., 404 error)
-      setError("Looks like we can't find the user");
+      setError("Looks like we cant find the user");
 
-      setError("Looks like we can't find the user");
+      setError("Looks like we cant find the user");
     } finally {
       setLoading(false);
     }
