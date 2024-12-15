@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Exact GitHub API URL as required
-const API_URL = 'https://api.github.com/search/users?q';  // Exact URL as per the requirement
+const API_URL = "https://api.github.com/search/users?q";  // Exact URL as per the requirement
 const USER_API_URL = 'https://api.github.com/users';    // GitHub User details endpoint
 
 // Function to construct the query string for advanced search
