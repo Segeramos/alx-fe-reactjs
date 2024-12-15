@@ -18,9 +18,15 @@ const SearchInput = () => {
 
     try {
       const response = await axios.get(`https://api.github.com/users/${username}`);
-      setUserData(response.data);
+      
+      if (response.status === 404) {
+        setError("Looks like we can't find the user");
+      } else {
+        setUserData(response.data);
+      }
     } catch (error) {
-      setError("Failed to fetch user data");
+      // This handles the case when the user doesn't exist (e.g., 404 error)
+      setError("Looks like we can't find the user");
     } finally {
       setLoading(false);
     }
@@ -29,11 +35,16 @@ const SearchInput = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" value={username} onChange={handleChange} placeholder="Enter username" />
+        <input
+          type="text"
+          value={username}
+          onChange={handleChange}
+          placeholder="Enter username"
+        />
         <button type="submit">Search</button>
       </form>
       {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {error && <p>{error}</p>} {/* Display error message */}
       {userData && (
         <div>
           <img src={userData.avatar_url} alt={userData.login} />
